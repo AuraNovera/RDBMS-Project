@@ -1,0 +1,26 @@
+create table customers(
+promo_code varchar(20),
+name varchar(30),
+email varchar(30),
+phone varchar(15),
+password varchar(15),
+dob date,
+address varchar(50),
+username varchar(20)
+);
+
+
+CREATE SEQUENCE S_ID START WITH 1
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 1000;
+
+INSERT INTO customers VALUES(NULL,'Raisa','raisa@gmail.com','01796581246','raisa',TO_DATE('15-05-1998','DD-MM-YYYY'),'IUT');
+INSERT INTO customers VALUES(NULL,'Novera','novera@gmail.com','01796581246','novera',TO_DATE('16-01-1997','DD-MM-YYYY'),'IUT',NULL);
+INSERT INTO customers VALUES(NULL,'Anika','anika@gmail.com','01796581246','anika',TO_DATE('08-05-1997','DD-MM-YYYY'),'IUT',NULL);
+INSERT INTO customers VALUES(NULL,'Hafiz','hafiz@gmail.com','01796581246','hafiz',TO_DATE('08-05-1999','DD-MM-YYYY'),'IUT',NULL);
+INSERT INTO customers VALUES(NULL,'Ebtesam','ebtesam@gmail.com','01796581246','ebtesam',TO_DATE('08-05-2016','DD-MM-YYYY'),'IUT',NULL);
+INSERT INTO customers VALUES(NULL,'fabiha','fabiha@gmail.com','01796581246','fabiha',TO_DATE('08-05-2015','DD-MM-YYYY'),'IUT',NULL);
+
+
+select name,username,promo_code from customers;

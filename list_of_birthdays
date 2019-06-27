@@ -1,0 +1,8 @@
+DECLARE
+users number;
+names varchar(20);
+BEGIN 
+select count(name) into users from customers where to_char(dob,'MM-DD')=to_char(sysdate,'MM-DD');
+dbms_output.put_line( ’Birthdays of ’|| users ||' customers');
+END; 
+/

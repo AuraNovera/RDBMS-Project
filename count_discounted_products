@@ -1,0 +1,14 @@
+DECLARE 
+total_rows number; 
+BEGIN 
+UPDATE CART 
+SET PRICE = PRICE-PRICE*DISCOUNT
+WHERE PRICE>250 and CATEGORY in ('MOVIE', 'SITCOM');
+IF sql%notfound THEN 
+dbms_output.put_line(’NO DISCOUNT FOR YOU! SORRY :(’); 
+ELSIF sql%found THEN 
+total_rows := sql%rowcount; 
+dbms_output.put_line( total_rows || ’ PRODUCTS WILL BE ON DISCOUNT! ’);
+END IF; 
+END; 
+/

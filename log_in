@@ -1,0 +1,19 @@
+create or replace function log_in(name in varchar2, password in varchar2)   
+return varchar2  
+as  
+  z number;  
+begin  
+  select count(*)  
+    into z   
+    from customers   
+    where name=name   
+    and password=password; 
+  return 'Login successful!';  
+if z=0 then 
+return 'Wrong name or password!';
+end if;
+end; 
+/
+
+
+select log_in('anika','anika') from dual;

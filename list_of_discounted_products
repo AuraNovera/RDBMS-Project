@@ -1,0 +1,22 @@
+DECLARE
+names cart.name%type;
+price cart.price%type;
+category cart.category%type;
+cursor discount is
+select name from cart WHERE PRICE>250 and CATEGORY in ('MOVIE', 'SITCOM');
+begin
+open discount;
+loop
+fetch discount
+into names;
+exit
+when discount%notfound;
+if(PRICE<250 and CATEGORY in ('MOVIE', 'MUSIC')) then
+dbms_output.put_line( 'Sorry No discount ');
+else
+dbms_output.put_line('Discounted product is '|| names);
+end if;
+end loop;
+close discount;
+END; 
+/

@@ -1,0 +1,23 @@
+#FUNCTION TO WISH ON BIRTHDAYS
+
+DECLARE
+names customers.name%type;
+dob customers.dob%type;
+cursor birthday is
+select name from customers where to_char(dob,'MM-DD')=to_char(sysdate,'MM-DD');
+begin
+open birthday;
+loop
+fetch birthday
+into names;
+exit
+when birthday%notfound;
+if(to_char(dob,'MM-DD')=to_char(sysdate,'MM-DD')) then
+dbms_output.put_line( ’No birthdays!’);
+else
+dbms_output.put_line( ’Happy Birthday ’|| names);
+end if;
+end loop;
+close birthday;
+END; 
+/
